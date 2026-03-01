@@ -19,6 +19,143 @@ A **production-ready** full-stack system for managing citizen-reported city issu
 
 ---
 
+## 📸 Screenshots & Assets
+
+### Frontend UI Screenshots
+
+#### Authentication Pages
+
+- **Login Screen** – Clean, responsive login form with email/password validation
+- **Registration Screen** – User-friendly signup with password strength indicator
+- **Password Requirements** – Enforces minimum 8 characters, uppercase letter, and digit
+
+#### Citizen Dashboard
+
+- **Report Issue** – Geo-enabled form to report new city issues
+- **Issue List** – Paginated, filterable view of all issues
+- **Issue Details** – Full issue information with status history and comments
+- **My Issues** – Tracks user's reported issues and their status
+
+#### Staff Dashboard
+
+- **Assigned Issues** – List of issues assigned for resolution
+- **Status Management** – Quick update of issue status with notes
+- **Issue Attachments** – View and upload evidence/documents
+- **Internal Notes** – Add staff-only notes for issue tracking
+
+#### Admin Dashboard
+
+- **Dashboard Stats** – Overview of all issues, departments, and users
+- **Audit Logs** – Complete activity log of all system operations
+- **User Management** – Create, edit, and manage user roles
+- **Department Management** – Configure departments and their assignments
+- **Overdue Issues** – Monitor SLA breaches and high-priority items
+
+### API Assets
+
+#### OpenAPI/Swagger Documentation
+
+- **Interactive API Explorer** – Test endpoints directly from browser
+- **Request/Response Examples** – See exact data formats
+- **Authentication UI** – Authorize with JWT tokens
+- **ReDoc Alternative** – Beautiful, searchable documentation
+
+#### Entity Diagrams
+
+**User Roles & Permissions**
+
+```
+┌─────────────┐
+│   CITIZEN   │ - Report issues, view own issues
+├─────────────┤
+│   STAFF     │ - Assign, update, resolve issues, add notes
+├─────────────┤
+│   ADMIN     │ - Full system access, user & department management
+└─────────────┘
+```
+
+**Issue Lifecycle**
+
+```
+┌─────────┐    ┌──────────────┐    ┌──────────┐    ┌───────┐
+│  OPEN   │──▶ │ IN_PROGRESS  │──▶ │ RESOLVED │──▶ │ CLOSED│
+└─────────┘    └──────────────┘    └──────────┘    └───────┘
+     ▲                                    │
+     └────────────────────────────────────┘
+            (Can reopen if needed)
+```
+
+**Priority & SLA Matrix**
+
+```
+Priority  │ SLA Duration │ Color
+──────────┼──────────────┼──────
+CRITICAL  │ 1 day        │ 🔴 Red
+HIGH      │ 3 days       │ 🟠 Orange
+MEDIUM    │ 7 days       │ 🟡 Yellow
+LOW       │ 14 days      │ 🟢 Green
+```
+
+### Data Schemas
+
+**User Model**
+
+```json
+{
+  "id": "uuid",
+  "email": "user@example.com",
+  "full_name": "John Doe",
+  "phone": "+91 98765 43210",
+  "role": "CITIZEN|STAFF|ADMIN",
+  "is_active": true,
+  "created_at": "2026-03-01T10:00:00Z",
+  "updated_at": "2026-03-01T10:00:00Z"
+}
+```
+
+**Issue Model**
+
+```json
+{
+  "id": "uuid",
+  "title": "Pothole on Main Street",
+  "description": "Large pothole causing traffic issues...",
+  "category": "ROAD",
+  "status": "OPEN",
+  "priority": "HIGH",
+  "latitude": 28.6139,
+  "longitude": 77.2090,
+  "address": "Main Street, Ward 5",
+  "ward": "Ward 5",
+  "zone": "North",
+  "reported_by": {...user...},
+  "assigned_to": {...user...},
+  "sla_deadline": "2026-03-03T10:00:00Z",
+  "resolved_at": null,
+  "created_at": "2026-03-01T10:00:00Z",
+  "updated_at": "2026-03-01T10:00:00Z"
+}
+```
+
+### Media Assets Directory Structure
+
+```
+frontend/public/
+├── assets/
+│   ├── images/
+│   │   ├── logo.png              # Application logo
+│   │   ├── hero.jpg              # Landing page hero image
+│   │   └── icons/
+│   │       ├── issue.svg          # Issue icons
+│   │       ├── user.svg           # User avatar icon
+│   │       └── department.svg     # Department icon
+│   └── fonts/
+│       ├── inter.woff2            # Primary font
+│       └── mono.woff2             # Code font
+```
+
+---
+
 ## 🏗️ Project Structure
 
 ```
