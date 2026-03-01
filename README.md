@@ -25,35 +25,83 @@ A **production-ready** full-stack system for managing citizen-reported city issu
 
 #### Authentication Pages
 
-- **Login Screen** – Clean, responsive login form with email/password validation
-- **Registration Screen** – User-friendly signup with password strength indicator
-- **Password Requirements** – Enforces minimum 8 characters, uppercase letter, and digit
+**Sign In**
 
-#### Citizen Dashboard
+![Sign In Screen](./assets/Signin.png)
 
-- **Report Issue** – Geo-enabled form to report new city issues
-- **Issue List** – Paginated, filterable view of all issues
-- **Issue Details** – Full issue information with status history and comments
-- **My Issues** – Tracks user's reported issues and their status
+Sign in with email and password. Default admin account:
 
-#### Staff Dashboard
+- Email: `admin@cityissues.gov`
+- Password: `Admin@123456`
 
-- **Assigned Issues** – List of issues assigned for resolution
-- **Status Management** – Quick update of issue status with notes
-- **Issue Attachments** – View and upload evidence/documents
-- **Internal Notes** – Add staff-only notes for issue tracking
+---
+
+#### Report Issue
+
+**Create New Issue**
+
+![Report Issue](./assets/Report_issue.png)
+
+Geo-enabled form to report city issues with:
+
+- Issue title and description
+- Category selection (Road, Water, Electricity, etc.)
+- Priority level assignment
+- Location mapping
+- File attachments
+
+---
+
+#### Issue Management
+
+**View Issues**
+
+![Issue List & Details](./assets/Issue.png)
+
+Browse and manage reported issues with:
+
+- Filterable issue list
+- Detailed issue information
+- Status history tracking
+- Internal notes and comments
+- File attachments
+- Location-based filtering
+
+---
 
 #### Admin Dashboard
 
-- **Dashboard Stats** – Overview of all issues, departments, and users
-- **Audit Logs** – Complete activity log of all system operations
-- **User Management** – Create, edit, and manage user roles
-- **Department Management** – Configure departments and their assignments
-- **Overdue Issues** – Monitor SLA breaches and high-priority items
+**Admin Panel Overview**
+
+![Admin Dashboard](./assets/AdminDashboard.png)
+
+Complete system management interface featuring:
+
+- Dashboard statistics and analytics
+- User management and role assignment
+- Department configuration
+- Audit logs and activity tracking
+- SLA monitoring and overdue tracking
+- Issue assignment and status management
+- Performance reports and metrics
 
 ### API Assets
 
 #### OpenAPI/Swagger Documentation
+
+**API Endpoint Examples**
+
+![API Endpoint 1](./assets/API_Endpoint1.png)
+
+![API Endpoint 2](./assets/API_Endpoint2.png)
+
+Full API documentation available at:
+
+- **Swagger UI:** http://localhost:8000/docs
+- **ReDoc:** http://localhost:8000/redoc
+- **OpenAPI JSON:** http://localhost:8000/openapi.json
+
+Features:
 
 - **Interactive API Explorer** – Test endpoints directly from browser
 - **Request/Response Examples** – See exact data formats
